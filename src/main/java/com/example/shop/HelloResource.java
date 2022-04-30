@@ -89,10 +89,10 @@ public class HelloResource {
 
         for (int i = 0; i < products.length; i++) {
             arr = products[i].split(",");
-            listOfProducts.add(new Product(Integer.parseInt(arr[0]), arr[1], arr[2], arr[3], arr[5].contains("1")));
+            listOfProducts.add(new Product(Integer.parseInt(arr[0]), arr[1], arr[2], arr[3], arr[5].contains("0")));
         }
 
-        List<Product> getIsOther = listOfProducts.stream().filter(j -> !j.getIsFeatured()).collect(Collectors.toList());
+        List<Product> getIsOther = listOfProducts.stream().filter(j -> j.getIsFeatured()).collect(Collectors.toList());
 
         return Response.ok(getIsOther).build();
     }
